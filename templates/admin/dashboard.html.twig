@@ -1,0 +1,119 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}
+    <h1><i class="fas fa-paw"></i> Welcome to PawTrack Admin</h1>
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-md-12 mb-4">
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i>
+                <strong>Welcome back, {{ app.user.email }}!</strong> 
+                Use the sidebar to manage users, animals, health logs, and blog posts.
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card border-primary">
+                <div class="card-body text-center">
+                    <i class="fas fa-paw fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title">Animals</h5>
+                    <p class="card-text">Manage all registered pets in the system</p>
+                    <a href="{{ ea_url().setController('App\\Controller\\Admin\\AnimalCrudController').setAction('index') }}" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i> View Animals
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card border-success">
+                <div class="card-body text-center">
+                    <i class="fas fa-chart-line fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Health Logs</h5>
+                    <p class="card-text">Track health events and medical records</p>
+                    <a href="{{ ea_url().setController('App\\Controller\\Admin\\PooLogCrudController').setAction('index') }}" class="btn btn-success">
+                        <i class="fas fa-arrow-right"></i> View Logs
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card border-info">
+                <div class="card-body text-center">
+                    <i class="fas fa-newspaper fa-3x text-info mb-3"></i>
+                    <h5 class="card-title">Blog Posts</h5>
+                    <p class="card-text">Manage educational content and articles</p>
+                    <a href="{{ ea_url().setController('App\\Controller\\Admin\\BlogPostCrudController').setAction('index') }}" class="btn btn-info">
+                        <i class="fas fa-arrow-right"></i> View Posts
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="card-title mb-0"><i class="fas fa-info-circle"></i> Quick Links</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="fas fa-user"></i> 
+                            <a href="{{ ea_url().setController('App\\Controller\\Admin\\UserCrudController').setAction('index') }}">
+                                Manage Users
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-pills"></i> 
+                            <a href="{{ ea_url().setController('App\\Controller\\Admin\\MedicineLogCrudController').setAction('index') }}">
+                                Medicine Logs
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-syringe"></i> 
+                            <a href="{{ ea_url().setController('App\\Controller\\Admin\\VaccineLogCrudController').setAction('index') }}">
+                                Vaccine Logs
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-book"></i> 
+                            <a href="/api/docs" target="_blank">
+                                API Documentation
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="card-title mb-0"><i class="fas fa-lightbulb"></i> Getting Started</h5>
+                </div>
+                <div class="card-body">
+                    <h6>What you can do here:</h6>
+                    <ul>
+                        <li><strong>Manage Animals:</strong> Add, edit, or remove pet profiles</li>
+                        <li><strong>Track Health:</strong> View and manage health logs (poo, medicine, vaccines)</li>
+                        <li><strong>Create Content:</strong> Write and publish blog posts</li>
+                        <li><strong>User Management:</strong> Add admins and manage user accounts</li>
+                    </ul>
+                    
+                    <div class="alert alert-success mt-3">
+                        <i class="fas fa-check-circle"></i>
+                        <strong>System Status:</strong> All systems operational
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

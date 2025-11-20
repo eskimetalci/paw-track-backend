@@ -1,0 +1,37 @@
+api_platform:
+    title: 'PawTrack API'
+    description: 'REST API for pet health tracking'
+    version: '1.0.0'
+    
+    # Enable Swagger documentation
+    swagger:
+        versions: [3]
+    
+    # Default configuration for resources
+    defaults:
+        pagination_enabled: true
+        pagination_items_per_page: 30
+        pagination_maximum_items_per_page: 100
+        pagination_client_items_per_page: true
+        
+    # Format configuration
+    formats:
+        jsonld: ['application/ld+json']
+        json: ['application/json']
+        html: ['text/html']
+    
+    # Error formats
+    error_formats:
+        jsonproblem: ['application/problem+json']
+        jsonld: ['application/ld+json']
+    
+    # OpenAPI configuration
+    openapi:
+        contact:
+            name: 'PawTrack API Support'
+            email: 'support@pawtrack.com'
+        termsOfService: 'https://pawtrack.com/terms'
+        
+    # Path naming
+    path_segment_name_generator: api_platform.path_segment_name_generator.underscore
+
